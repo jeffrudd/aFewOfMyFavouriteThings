@@ -43,3 +43,8 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+[type="image"] {
+  border-radius: 25%;
+  background: rgba(200, 200, 255, 0.849);
+}

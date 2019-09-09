@@ -105,7 +105,7 @@ class App extends Component {
     event.preventDefault();
     this.setState({
       topic: event.target.value,
-      isShowing: true
+      isShowing: true,
     });
   }
 
@@ -133,6 +133,46 @@ class App extends Component {
     return (
       <div className="App">
         <h1>A Few of My Favourite Things</h1>
+        {this.state.isShowing &&
+          <div className="modalParent">
+            <section >
+              <Modal
+                className="modal"
+                show={this.state.isShowing}
+                close={this.closeModalHandler}
+                topic={this.state.topic}>
+                {this.state[this.state.topic].map((book) => {
+                  return (
+                    <ul>
+                      <li key={book.uniqueKey}>
+                        <p>{book.title}</p>
+                        <button onClick={() => this.removeBook(book.uniqueKey)}>Remove Item</button>
+                      </li>
+                    </ul>
+                  )
+                })}
+              </Modal>
+            </section>
+
+            {/* {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null} */}
+
+            {/* <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button> */}
+
+            {/* {this.state.isShowing && */}
+            <section>
+              <Modal
+                className="modal"
+                show={this.state.isShowing}
+                close={this.closeModalHandler}
+                topic={this.state.topic}>
+                <form action="">
+                  <input onChange={this.handleChange} type="text" name="userInput" placeholder="Item" value={this.state.userInput} />
+                  <input onChange={this.handleChange} type="text" name="userComment" placeholder="Because..." value={this.state.userComment} />
+                  <button onClick={this.handleSubmit}>Add New Item</button>
+                </form>
+              </Modal>
+            </section>
+          </div>}
         <form className="container" buttons="">
           <div>
             <input type="image" src={movie} alt="Movie" value="Movie" name="Movie" onClick={this.handleTopic}/>
@@ -185,8 +225,8 @@ class App extends Component {
             <label for="Sport">Sport</label>
           </div>
           <div>
-            <input type="image" src={tv} alt="TV Show" value="TV" name="TV" onClick={this.handleTopic} />
-            <label for="TV">TV Show</label>
+            <input type="image" src={tv} alt="TV-Show" value="TV" name="TV" onClick={this.handleTopic} />
+            <label for="TV">TV-Show</label>
           </div>
           <div>
             <input type="image" src={wine} alt="Wine" value="Wine" name="Wine" onClick={this.handleTopic}  />
@@ -212,44 +252,7 @@ class App extends Component {
 
           {/* <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button> */}
 
-          {this.state.isShowing &&
-          <div className="modalParent">
-        <section >
-          <Modal
-            className="modal"
-            show={this.state.isShowing}
-            close={this.closeModalHandler}>
-            {this.state[this.state.topic].map((book) => {
-              return (
-                <ul>
-                  <li key={book.uniqueKey}>
-                    <p>{book.title}</p>
-                    <button onClick={() => this.removeBook(book.uniqueKey)}>Remove Item</button>
-                  </li>
-                </ul>
-              )
-            })}
-          </Modal>
-        </section>
-        
-          {/* {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null} */}
 
-          {/* <button className="open-modal-btn" onClick={this.openModalHandler}>Open Modal</button> */}
-
-        {/* {this.state.isShowing && */}
-         <section>
-          <Modal
-            className="modal"
-            show={this.state.isShowing}
-            close={this.closeModalHandler}>
-                <form action="">
-                  <input onChange={this.handleChange} type="text" name="userInput" placeholder="Item" value={this.state.userInput} />
-                  <input onChange={this.handleChange} type="text" name="userComment" placeholder="Because..." value={this.state.userComment} />
-                  <button onClick={this.handleSubmit}>Add New Item</button>
-                </form>
-          </Modal>
-        </section>
-        </div> }
       </div>
     );
   }
