@@ -22,7 +22,7 @@
 }
 
 .modal-header {
-    background: #263238;
+    background: rebeccapurple;
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;
@@ -30,7 +30,7 @@
 }
 
 .modal-header h3 {
-    color: white;
+    color: palegoldenrod;
     float: left;
     margin: 0;
     padding: 0;
@@ -42,13 +42,13 @@
 }
 
 .modal-footer {
-    background: #263238;
+    background: rebeccapurple;
     height: 35px;
     padding: 15px;
 }
 
 .close-modal-btn {
-    color: white;
+    color: red;
     cursor: pointer;
     float: right;
     font-size: 30px;
@@ -56,10 +56,11 @@
 }
 
 .close-modal-btn:hover {
-    color: black;
+    transform: scale(1.5);
+    color: white;
 }
 
-.btn-cancel, .btn-continue {
+.btn-cancel {
     background: coral;
     border: none;
     color: white;
@@ -72,13 +73,12 @@
 .btn-cancel {
     background-color: #b71c1c;
     float: left;
-    /* width: 25%; */
     min-width: 25%;
 }
 
-.btn-continue {
-    background-color: #1b5e20;
-    float: right;
+.btn-cancel:hover {
+    background-color: white;
+    color: red;
 }
 
 .back-drop {
@@ -91,4 +91,13 @@
 
 [type="text"] {
     width: 100%;
+    margin: 0 0 10px 0;
+}
+
+@media (max-width: 450px) {
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        font-size: 1.1REM;
+    }
 }
