@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from './firebase';
 import './App.css';
+import heart from './assets/heart.png'
 import movie from './assets/movie.png'
 import book from './assets/book.png'
 import beer from './assets/beer.png'
@@ -12,10 +13,13 @@ import meal from './assets/meal.png'
 import restaurant from './assets/restaurant.png'
 import song from './assets/song.png'
 import tv from './assets/tv.png'
-import spiritanimal from './assets/spiritanimal.png'
+import animal from './assets/animal.png'
 import sport from './assets/sport.png'
 import wine from './assets/wine.png'
+import sauce from './assets/sauce.png'
+import phoneApp from './assets/app.png'
 import Modal from './Modal'
+import background from './assets/background.jpg'
 
 class App extends Component {
   constructor() {
@@ -33,9 +37,11 @@ class App extends Component {
       Restaurant: [],
       Song: [],
       TV: [],
-      Spiritanimal: [],
+      Animal: [],
       Sport: [],
       Wine: [],
+      Sauce: [],
+      phoneApp: [],
       userInput: '', //for controlled input - best practice in React. When user inputs value => onChange updates State => State updates userInput.
       userComment: '',
       topic: 'Book',
@@ -74,9 +80,11 @@ class App extends Component {
     handleTopicChange('Restaurant');
     handleTopicChange('Song');
     handleTopicChange('TV');
-    handleTopicChange('Spiritanimal');
+    handleTopicChange('Animal');
     handleTopicChange('Sport');
     handleTopicChange('Wine');
+    handleTopicChange('Sauce');
+    handleTopicChange('PhoneApp');
     
   }
 
@@ -93,7 +101,10 @@ class App extends Component {
     this.state.combo = this.state.userInput + " - " + this.state.userComment;
 
     let dbRef = firebase.database().ref(this.state.topic);
-    dbRef.push(this.state.combo);
+    dbRef.push({
+      thing: this.state.userInput,
+      comment: this.state.userComment
+    });
 
     this.setState({
       userInput: '', //clear the field after submit
@@ -126,7 +137,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>😍 A Few of My Favourite Things ❤</h1>
+          <img src={heart}></img>
+          <h1>A Few of My Favourite Things ❤</h1>
         {this.state.isShowing &&
           <div className="modalParent">
             <section >
@@ -139,7 +151,7 @@ class App extends Component {
                   return (
                     <ul>
                       <li key={book.uniqueKey}>
-                        <p>{book.title}</p>
+                        <p><span className="itemStyle">{book.title.thing}</span> {book.title.comment}</p>
                         <button onClick={() => this.removeBook(book.uniqueKey)}>Remove</button>
                       </li>
                     </ul>
@@ -205,8 +217,8 @@ class App extends Component {
                 <label for="Song">Song</label>
               </div>
               <div>
-                <input type="image" src={spiritanimal} alt="Spirit-Animal" value="Spiritanimal" name="Spiritanimal" onClick={this.handleTopic} />
-                <label for="Spiritanimal">Spirit-Animal</label>
+              <input type="image" src={animal} alt="Animal" value="Animal" name="Animal" onClick={this.handleTopic} />
+              <label for="Animal">Animal</label>
               </div>
               <div>
                 <input type="image" src={sport} alt="Sport" value="Sport" name="Sport" onClick={this.handleTopic} />
@@ -220,6 +232,14 @@ class App extends Component {
                 <input type="image" src={wine} alt="Wine" value="Wine" name="Wine" onClick={this.handleTopic}  />
                 <label for="Wine">Wine</label>
               </div>
+            <div>
+              <input type="image" src={sauce} alt="Sauce" value="Sauce" name="Sauce" onClick={this.handleTopic} />
+              <label for="Sauce">Sauce</label>
+            </div>
+            <div>
+              <input type="image" src={phoneApp} alt="PhoneApp" value="PhoneApp" name="PhoneApp" onClick={this.handleTopic} />
+              <label for="PhoneApp">App</label>
+            </div>
             </form>
           </div>
         <div className="footerText">

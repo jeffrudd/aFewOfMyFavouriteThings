@@ -10,17 +10,8 @@ body {
   margin: 0;
   font-family: 'Architects Daughter', cursive;
   text-align: center;
-  font-size: 1.5REM;
+  font-size: 1.6REM;
+  background: url(./assets/background.jpg);
 }
 
-h1 {
-  font-family: 'Londrina Sketch', cursive;
-  font-size: 3.0REM;
-  text-align: center;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 

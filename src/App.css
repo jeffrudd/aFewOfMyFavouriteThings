@@ -1,37 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .gridContainer {
   margin: 0 auto;
 }
@@ -43,8 +9,11 @@
 }
 
 h1 {
-  background: rgba(225, 200, 255, 0.849);
+  /* background: rgba(225, 200, 255, 0.849); */
   margin-top: 0;
+  font-family: 'Londrina Sketch', cursive;
+  font-size: 3.5REM;
+  text-align: center;
 }
 
 ul {
@@ -83,10 +52,15 @@ a:focus {
   background: rebeccapurple;
 }
 
+.itemStyle {
+  font-size: 2.0REM;
+}
+
 .footerText {
-  background: rebeccapurple;
+  background: rgba(102, 51, 153, 0.747);
   color: palegoldenrod;
   margin-top: 25px;
+  font-size: 1.2REM;
 }
 
 .footerText p {
@@ -106,7 +80,7 @@ a:focus {
   grid-gap: 10px;
   }
   .footerText {
-    font-size: 1.2REM;
+    font-size: 1.0REM;
   }
 
   h1 {

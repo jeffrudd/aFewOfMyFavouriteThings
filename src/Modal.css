@@ -1,5 +1,4 @@
 .modalParent {
-    /* position:-webkit-sticky; position:sticky; top:0; */
     position:fixed;
     top: 0;
     left: 0;
@@ -13,7 +12,7 @@
 }
 
 .modal-wrapper {
-    background: white;
+    background: url(./assets/background.jpg);
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
     margin: 100px auto 0;
@@ -61,16 +60,6 @@
 }
 
 .btn-cancel {
-    background: coral;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    outline: none;
-    padding: 10px;
-}
-
-.btn-cancel {
     background-color: #b71c1c;
     float: left;
     min-width: 25%;
@@ -79,14 +68,6 @@
 .btn-cancel:hover {
     background-color: white;
     color: red;
-}
-
-.back-drop {
-    background-color: rgba(48, 49, 48, 0.42);
-    height: 100%;
-    position: fixed;
-    transition: all 1.3s;
-    width: 100%;
 }
 
 [type="text"] {
