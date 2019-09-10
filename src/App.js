@@ -151,7 +151,7 @@ class App extends Component {
                   return (
                     <ul>
                       <li key={book.uniqueKey}>
-                        <p><span className="itemStyle">{book.title.thing}</span> {book.title.comment}</p>
+                        <p><span className="itemStyle">{book.title.thing} ❤</span> {book.title.comment}</p>
                         <button onClick={() => this.removeBook(book.uniqueKey)}>Remove</button>
                       </li>
                     </ul>
